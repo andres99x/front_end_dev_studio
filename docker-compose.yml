@@ -3,10 +3,14 @@ version: '2'
 services:
   studio:
     build: .
-    command: gulp
+    command: yarn run start
     ports:
-      - "3000:3000"
-      - "3001:3001"
+      - "8080:8080"
     volumes:
       - .:/var/www
-    restart: always
+
+  build:
+    build: .
+    command: yarn run build
+    volumes:
+      - .:/var/www
